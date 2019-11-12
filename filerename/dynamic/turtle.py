@@ -1,4 +1,4 @@
-from filerename.common.combinations import print_arr
+from filerename.dynamic.combinations import print_arr
 
 
 def solve(a):
@@ -14,8 +14,9 @@ def solve(a):
         for j in range(1, m):
             b[i][j] = max(b[i + 1][j], b[i][j - 1]) + a[i][j]
     print_arr(b)
-    result = way(0, 3, a, b, res=[])
-    print(result)
+    return b[0][m - 1]
+    #result = way(0, 3, a, b, res=[])
+    #print(result)
 
 
 def way(i, j, a, b, res):
