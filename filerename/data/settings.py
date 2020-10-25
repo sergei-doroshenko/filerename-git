@@ -12,6 +12,6 @@ class Settings:
         self.config.read('./resources/config.ini')
 
     def now(self):
-        print(self.config['DATABASE']['HOST'])
+        # print(self.config['DATABASE']['HOST'])
         today = date.today()
         return today
