@@ -1,6 +1,7 @@
 # Disk usage
 # !/usr/bin/python3
 import os
+import sys
 
 
 def get_directory_size(directory):
@@ -40,6 +41,7 @@ def get_size_format(b, factor=1024, suffix="B"):
 
 def du(path):
     """Disk usage in human readable format (e.g. '2,1GB')"""
+    print(f"Scanning {path} ...")
     result = []
     for entry in os.scandir(path):
         path = entry.path
@@ -54,4 +56,11 @@ def du(path):
 
 
 if __name__ == "__main__":
-    du("F:\\")
+    print(f"Number of arguments: {len(sys.argv)}")
+    print(f"Argument List: {str(sys.argv)}")
+
+    if len(sys.argv) < 2:
+        raise Exception("Provide scan root, please. E.g.: F:\\")
+    du(sys.argv[1])
+
+    # du("E://")
